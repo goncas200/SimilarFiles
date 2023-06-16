@@ -2,11 +2,17 @@ import os
 
 def similarFiles(folder: str):
     files = []
+    files_iterated = []
+    os.chdir(folder)
     for file in os.listdir(folder):
         if os.path.isfile(file):
             files.append(file)
     for file in files:
         for file2 in files:
+            if file2 in files_iterated:
+                continue
+            if file not in files_iterated:
+                files_iterated.append(file)
             if file == file2:
                 continue
             similar_chars = 0
@@ -35,4 +41,10 @@ def similarFiles(folder: str):
                     print(f"{file}/{file2}: 0%")
 
 if __name__ == '__main__':
-    similarFiles(input("Enter folder: "))
+    loop = True
+    while loop:
+        try:
+            similarFiles(os.getcwd())
+            loop = False
+        except FileNotFoundError:
+            print("Folder not found")
