@@ -67,7 +67,5 @@ def similarFiles(folder: str):
                         os.remove(file2)
                         print(f"{file2} removed")
 if __name__ == '__main__':
-    loop = True
-    while loop:
-        similarFiles(os.getcwd())
-        loop = False
+    similarFiles(os.getcwd())
+        
