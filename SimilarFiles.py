@@ -35,4 +35,4 @@ def similarFiles(folder: str):
                     print(f"{file}/{file2}: 0%")
 
 if __name__ == '__main__':
-    similarFiles(os.getcwd())
+    similarFiles(input("Enter folder: "))
