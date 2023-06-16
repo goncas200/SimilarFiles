@@ -18,9 +18,15 @@ def similarFiles(folder: str):
                 continue
             similar_chars = 0
             with open(file, 'r') as f:
-                f1 = f.read()
+                try:
+                    f1 = f.read()
+                except UnicodeDecodeError:
+                    print(f"Couldn't decode file {file}")
             with open(file2, 'r') as f2:
-                f2 = f2.read()
+                try:
+                    f1 = f.read()
+                except UnicodeDecodeError:
+                    print(f"Couldn't decode file {file2}")
             if f1 == f2:
                 percentage = 100
                 print(f"{file}/{file2}: {percentage}% similar")
